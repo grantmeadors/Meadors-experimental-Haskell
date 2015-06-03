@@ -50,17 +50,28 @@
 --posterior a b = a*a*a + b*b*b
 
 --More stuff
-f :: Num a => a -> a -> a
-f x y = x*x + y*y
-g :: Num a => a -> a
---g = f 5
-g = \y -> 5*5 + y*y
+--f :: Num a => a -> a -> a
+--f x y = x*x + y*y
+--g :: Num a => a -> a
+----g = f 5
+--g = \y -> 5*5 + y*y
 
-main = do
+--main = do
     --print "What is your name today?"
     --name <- getLine
     --print ("Greetings " ++ name ++ "!")
     --print (f 2 3)
     --print (posterior 2 3)
-    print (f 5 3)
-    print (g 3)
+    --print (f 5 3)
+    --print (g 3)
+
+--Now can we start to play with Bayesianism?
+posterior :: Float -> Float -> Float
+posterior a b  = (likelihood b a) * (prior a)/ (normalization b)
+
+likelihood b a = b+a
+prior a = a
+normalization b = b
+
+main = do
+    print (posterior 1.0 2.0)
