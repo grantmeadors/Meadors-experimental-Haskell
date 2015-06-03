@@ -7,3 +7,6 @@ all: compile
 
 compile:
 	$(CC) $(CFLAGS) $(EXECUTABLE) $(SOURCES)
+
+clean:
+	rm $(EXECUTABLE) *.hi *.o
